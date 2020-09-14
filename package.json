@@ -1,0 +1,64 @@
+{
+  "name": "order-my-steps",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Commands and documentation I've saved to teach myself various tools and techniques.",
+  "author": "Eddie Naff",
+  "license": "MIT",
+  "lint-staged": {
+    "src/**/*.{ts}": [
+      "eslint . --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/cz-customizable.config.js"
+    }
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "no-shadow": "warn",
+      "@typescript-eslint/explicit-member-accessibility": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/indent": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/camelcase": "off",
+      "@typescript-eslint/array-type": "off",
+      "@typescript-eslint/no-object-literal-type-assertion": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "error"
+      ],
+      "@typescript-eslint/await-thenable": 2,
+      "@typescript-eslint/no-floating-promises": 2
+    }
+  },
+  "dependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0"
+  }
+}
